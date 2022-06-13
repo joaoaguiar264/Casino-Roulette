@@ -43,6 +43,12 @@ MonoBehaviour:
   - Rotate
   - Stop
   - PreStop
+  - Update
+  - Times
+  - Reset
+  - Unlock
+  - Reset1
+  - Reset2
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

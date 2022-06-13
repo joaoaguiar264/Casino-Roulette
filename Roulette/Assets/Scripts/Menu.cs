@@ -11,6 +11,12 @@ public class Menu : MonoBehaviourPunCallbacks
     public GameObject settings;
     public GameObject mainMenu;
 
+    public GameObject Selection1;
+    public GameObject Selection2;
+    public GameObject Selection3;
+    public GameObject Selection4;
+    public GameObject Selection5;
+
     private TypedLobby mainLobby = new TypedLobby("Lobby #1", LobbyType.Default);
     // Start is called before the first frame update
     void Start()
@@ -29,20 +35,25 @@ public class Menu : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinLobby(mainLobby);
         Debug.Log("Connected");
-
-
     }
 
-    public void Play()
+    public void ChooseGame()
     {
-        play.SetActive(true);
-        mainMenu.SetActive(false);
+        play.SetActive(false);
+        settings.SetActive(false);
+        mainMenu.SetActive(true);
+        Selection1.SetActive(false);
+        Selection2.SetActive(false);
+        Selection3.SetActive(true);
+        Selection4.SetActive(false);
+        Selection5.SetActive(false);
     }
     public void American()
     {
         RoomOptions options = new RoomOptions();
         PhotonNetwork.JoinOrCreateRoom("Room #1", options, TypedLobby.Default);
         PhotonNetwork.LoadLevel(1);
+        //SceneManager.LoadScene(1);
     }
 
     public void European()
@@ -52,14 +63,15 @@ public class Menu : MonoBehaviourPunCallbacks
 
     public void Settings()
     {
+        play.SetActive(false);
         settings.SetActive(true);
         mainMenu.SetActive(false);
-    }
 
-    public void Back()
-    {
-        mainMenu.SetActive(true);
-        settings.SetActive(false);
+        Selection1.SetActive(false);
+        Selection2.SetActive(false);
+        Selection3.SetActive(false);
+        Selection4.SetActive(false);
+        Selection5.SetActive(true);
     }
 
 }
